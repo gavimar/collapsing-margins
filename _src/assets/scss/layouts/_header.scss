@@ -1,0 +1,191 @@
+.container-header {
+  font-family: $fontFamilyTitle;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: normal;
+
+  .h1header {
+    font-size: rem(16);
+    padding: rem(20);
+    color: $menuColor;
+    margin-top: 0;
+    font-weight: 500;
+
+    & a {
+      color: white;
+      padding: 0.5rem;
+      &:hover,  
+      &:focus {
+        color: $bodyImportantColor;
+        transition: all 0.7s ease;
+      }
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  padding: 0px;
+  width: 100vw;
+  margin: auto;
+  text-transform: uppercase;
+
+  .group {
+    opacity: 0.95;
+    background-color: $headerColor;
+    text-align: center;
+  }
+}
+.main-menu {
+  padding: rem(15);
+  opacity: 0.9;
+  background-color: $subHeaderColor;
+
+  text-align: center;
+
+  & ul li {
+    display: inline;
+
+    & a {
+      font-size: rem(15);
+      font-family: $fontFamilyTitle;
+      font-weight: 500;
+      font-style: normal;
+      color: $menuColor;
+      padding: rem(8);
+    }
+  }
+
+  & a:hover,
+  a:focus {
+    color: $bodyImportantColor;
+    transition: all 0.7s ease;
+  }
+}
+.main-menu {
+  a:hover::before {
+    content: " [ ";
+    font-weight: bold;
+    color: $menuColor;
+  }
+
+  a:hover::after {
+    content: " ] ";
+    font-weight: bold;
+    color: $menuColor;
+  }
+}
+.hero {
+  background-color: $headerColor;
+  background-image: url(../images/foto_grupo.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 421px;
+  display: flex;
+  position: relative;
+  z-index: -1;
+
+  .textbox {
+    box-sizing: border-box;
+    width: 290px;
+    height: 80px;
+    background-color: $menuColor;
+    color: $bodyImportantColor;
+    font-size: rem(18);
+    font-family: $fontFamilyBody;
+    font-weight: 600;
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% - 145px);
+
+    & div {
+      height: 50%;
+    }
+  }
+}
+.whitebox p {
+  position: relative;
+  text-align: left;
+  padding: rem(11.7);
+  animation-name: textbox;
+  animation-duration: 5s;
+  animation-iteration-count: 1
+}
+
+@keyframes textbox {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/* A partir de aqui es responisve */
+
+@include forTablet {
+  .container-header {
+    position: fixed;
+    width: 100vw;
+    background-color: $headerColor;
+    opacity: 0.95;
+    height: 60px;
+
+    .h1header {
+      padding: rem(20) 0px;
+    }
+  }
+  .header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    opacity: 0.95;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+
+    .main-menu {
+      background-color: transparent;
+    }
+    .group {
+      background-color: transparent;
+    }
+  }
+
+.hero {
+  .whitebox {
+    position: relative;
+    height: 421px;
+    .textbox {
+      left: 15px;
+      bottom: 29px;
+      opacity: 80%;
+      padding: rem(15) rem(30);
+      width: 441px;
+    }
+  }
+}
+}
+
+@include forPc {
+  .header {
+    max-width: 900px;
+  }
+  .hero {
+    height: 550px;
+
+    .whitebox {
+      height: 550px;
+      & p {
+        font-size: rem(20);
+        .textbox {
+          width: 574px;
+          height: 90px;
+        }
+      }
+    }
+  }
+}

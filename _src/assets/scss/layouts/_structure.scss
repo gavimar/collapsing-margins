@@ -1,0 +1,67 @@
+body * {
+    margin: 0px;
+    padding: 0px;
+}
+html {
+    cursor: url(../images/cursor.png), auto;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+
+.buttontop {
+    display: none;
+}
+
+.container {
+    text-align: center;
+    margin: auto;
+    padding: 15px;
+    max-width: 300px;
+    width: 100%;
+    
+    @include forTablet {
+        max-width: 700px;
+    }
+/*changes*/
+    @include forPc {
+        max-width: 600px;
+    }
+/*changes*/
+}
+
+.container-footer {
+    border-top: solid grey 1px;
+    border-width: 100%;
+    padding: 0;
+}
+
+@include forPc {
+    .container-adalabers {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .buttontop {
+        display: block;
+        position: fixed;
+        bottom: 4%;
+        right: 2%;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: rgba($strengthsColor, 0.5);
+        color: black;
+        text-align: center;     
+        font-size: 30px;
+        font-weight: bolder;
+        border: solid 2px white;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            color: white;
+        }
+    }
+}
